@@ -1,4 +1,22 @@
 import streamlit as st
+# This must be the very first Streamlit command in your script
+st.set_page_config(
+    page_title="BackPocket",
+    page_icon="💰",
+)
+
+# Inject the Impact.com verification tag into the <head>
+st.markdown(
+    f"""
+    <script>
+        var meta = document.createElement('meta');
+        meta.name = "impact-site-verification";
+        meta.content = "9c4dc491-549c-4de6-98ea-84d662dbce49";
+        document.getElementsByTagName('head')[0].appendChild(meta);
+    </script>
+    """,
+    unsafe_allow_html=True
+)
 # Hide the top bar and the "Made with Streamlit" footer
 hide_style = """
     <style>
