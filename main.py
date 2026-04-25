@@ -6,7 +6,7 @@ from datetime import datetime
 
 # --- 1. CONFIG & SETTINGS ---
 st.set_page_config(page_title="BackPocket | Negotiation Intelligence", layout="wide", page_icon="🛡️")
-API_KEY = st.secrets["MARKETCHECK_API_KEY"]
+API_KEY = os.environ.get("MARKETCHECK_API_KEY")
 REVIEW_FILE = "reviews.txt"
 RADIUS = "100"
 
