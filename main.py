@@ -199,34 +199,77 @@ if st.session_state.page == "home":
 
 # --- 8. PAGE: NEGOTIATION GUIDE ---
 elif st.session_state.page == "guide":
-    st.title("The BackPocket Playbook")
-    st.write("### How the Game is Played (and how to win it)")
+    st.title("The 2026 Car Negotiation Playbook")
+    st.markdown("#### How to secure the best new car deal and avoid hidden dealer fees.")
     
-    col_l, col_r = st.columns(2)
-    with col_l:
-        st.markdown("""
-        #### 1. The Setup
-        You walk in, find the car, and go for a test drive. The dealer is building **rapport** and **emotional attachment**. They want you to visualize that car in your driveway.
-        
-        #### 2. The 'Desk' Phase
-        They take your keys to 'value your trade.' You are now stuck. They return with a four-square or a sheet showing:
-        * **MSRP:** Their primary anchor.
-        * **Markups:** 'Market adjustments' or 'Pro-packs.'
-        * **Low-Ball Trade:** Often thousands of dollars below the actual floor.
-        """)
+    st.info("💡 **Pro Tip:** Dealers negotiate every day. You only do it every few years. This guide levels the playing field using the **Market Floor** data you found on BackPocket.")
+
+    # Step 1 & 2: Preparation
+    col1, col2 = st.columns(2)
+    with col1:
+        with st.expander("Step 1: Weaponize Your Data", expanded=True):
+            st.write("""
+            **Get your data before you set foot on the lot.** * Use **KBB** or **CarMax** to establish a baseline for your **car trade-in value**.
+            * Use the **BackPocket Search Engine** to find the absolute **Market Floor** (the lowest price) for your specific trim within 100 miles.
+            """)
+    with col2:
+        with st.expander("Step 2: The 10% Affordability Rule", expanded=True):
+            st.write("""
+            **Verify your budget.**
+            * Use our calculator to ensure your total vehicle costs (payment, insurance, maintenance) fit within the **10% of monthly income bucket**. 
+            * Knowing your limit prevents you from being "upsold" into a debt trap.
+            """)
+
+    # Step 3 & 4: The Negotiation
+    st.divider()
+    st.subheader("At the Dealership")
     
-    with col_r:
-        st.markdown("""
-        #### 3. The BackPocket Counter
-        This is where you change the game. 
-        * **Label the adjustment:** *"It seems like this 'Market Adjustment' is a way to see how much over the actual market price I'm willing to pay."*
-        * **Use the Market Floor:** Show them the lowest listed price for that car within 100 miles. *"I've seen the floor for this trim. How am I supposed to pay $4k more than that?"*
-        * **The Cash Gap:** Ignore the monthly payment. Focus only on: *(Target Car Price) - (Actual Trade Value)*.
+    with st.expander("Step 3: Master the Sales Rapport"):
+        st.write("""
+        **Be the buyer they want to work with.**
+        * Visit your local dealer and be professional. The salesman is there to help you, but they are also there to make a profit. 
+        * Let them value your trade-in, but don't discuss numbers yet. Focus on the vehicle's fit for your lifestyle first.
         """)
 
-    st.info("💡 **Pro Tip:** The person who talks less wins. After you ask a 'How' question, **wait for them to talk.** Let the silence do the work.")
+    with st.expander("Step 4: Focus on the Out-the-Door (OTD) Price"):
+        st.write("""
+        **Don't negotiate the monthly payment.**
+        * Dealers love to hide costs in a "monthly payment." Instead, ask for the **Out-the-Door (OTD) Price** sheet. 
+        * Compare their number to the **lowest car price** you found on BackPocket. If they are higher, ask: *"I'm seeing this exact trim for $X nearby—how are we supposed to close the gap?"*
+        * **CRITICAL:** Do not mention you are a cash buyer (dealers prefer financing) and do not bring up your trade-in until the new car price is locked.
+        """)
+
+    # Step 5 & 6: Leverage
+    with st.expander("Step 5: The Power to Walk Away"):
+        st.write("""
+        **You are in control.**
+        * If the dealer won't budge on **market adjustments** or high doc fees, leave. 
+        * You have the data—you know there is a better price out there. Often, walking toward the door is the only way to get their "final, final" offer.
+        """)
+
+    with st.expander("Step 6: Digital Price Matching"):
+        st.write("""
+        **Text multiple dealerships at once.**
+        * You don't have to visit 10 stores. Get a salesman's cell number and text them: *"I'm buying a Ford Expedition today. My current best OTD offer is $X. If you can beat it without hidden dealer add-ons, I’ll come sign now."*
+        * Insist on removing "Pro-Packs," window tints, or nitrogen tires that add zero value.
+        """)
+
+    # Step 7, 8, 9: The Close
+    st.divider()
+    st.subheader("Closing the Deal")
     
-    if st.button("READY? GO TO SEARCH"):
+    c1, c2, c3 = st.columns(3)
+    with c1:
+        st.markdown("##### Step 7: Be Patient")
+        st.write("Wait for the final adjustment. Let them know you are ready to close **today** if they can shave off that last few hundred dollars.")
+    with c2:
+        st.markdown("##### Step 8: Choose the Best Deal")
+        st.write("Go to the dealership that provided the most transparency and the lowest **Cash Gap** (the difference between the new car and your trade).")
+    with c3:
+        st.markdown("##### Step 9: F&I Room Strategy")
+        st.write("Are **extended car warranties** negotiable? **YES.** If you want one, negotiate the price down just like the car. If not, politely decline all add-ons.")
+
+    if st.button("← BACK TO SEARCH ENGINE"):
         st.session_state.page = "engine"
         st.rerun()
 
