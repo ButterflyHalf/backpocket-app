@@ -7,7 +7,7 @@ from datetime import datetime
 # --- 1. CONFIG & SETTINGS ---
 # THIS MUST BE THE VERY FIRST STREAMLIT COMMAND
 st.set_page_config(
-    page_title="BackPocket Deal | Lowest Ford Expedition Prices in Austin",
+    page_title="BackPocket Deal | Find The Lowest Price For Your Next New Car",
     page_icon="💰",
     layout="wide"
 )
@@ -25,7 +25,7 @@ if "page" in query_params:
 st.markdown(
     """
     <head>
-        <meta name="description" content="Find the lowest priced Ford Expeditions in Austin. Use our Market Floor tool and Negotiation Playbook to save thousands.">
+        <meta name="description" content="Find the lowest priced new car near you. Use our Market Floor tool and Negotiation Playbook to save thousands.">
         <script>
             var meta = document.createElement('meta');
             meta.name = "impact-site-verification";
@@ -121,7 +121,7 @@ pages = [("BACKPOCKET", "home"), ("SEARCH ENGINE", "engine"), ("NEGOTIATION GUID
 # We've increased the decimal values to give the text more horizontal room.
 # [0.18, 0.22, 0.25, 0.22, 1.5]
 # The first four numbers are for your links, the '1.5' is the empty space on the right.
-nav_cols = st.columns([0.3, 0.25, 0.27, 0.22, 1.5]) 
+nav_cols = st.columns([0.3, 0.25, 0.29, 0.22, 1.5]) 
 
 for i, (label, pg) in enumerate(pages):
     if nav_cols[i].button(label, key=f"nav_{pg}"):
@@ -171,25 +171,23 @@ if st.session_state.page == "home":
             st.markdown(f'<div style="background-image: url(\'data:image/png;base64,{data}\'); background-size: cover; background-position: center 60%; height: 180px; border-radius: 10px; margin-bottom: 10px;"></div>', unsafe_allow_html=True)
     
     # --- AUSTIN SEO HEADERS ---
-    st.markdown("# Lowest Priced Ford Expedition near Austin, TX")
+    st.markdown("# Lowest Priced New Cars Near You")
     st.markdown("### 2026 Buyers Guide & Deal Analysis")
     
     st.write("""
-        Buying a Ford Expedition in Central Texas right now is tricky. With MSRPs 
-        fluctuating and Austin dealers adding 'market adjustments,' you need to know 
+        Buying a new car in America right now is tricky. With MSRPs 
+        fluctuating and dealers adding 'market adjustments,' you need to know 
         the real numbers. 
         
-        **BackPocket** analyzes the latest data for Ford Expeditions in Austin, 
-        Round Rock, and Georgetown to show you the actual 'Drive-Away' price.
+        **BackPocket** analyzes the latest data for new cars near you to show the actual 'Drive-Away' price.
     """)
 
     # --- AGGREGATOR BUSTER CONTENT ---
     with st.container():
         st.info("💡 **Austin Market Insight (April 2026):**")
         st.write("""
-            * **Target Price:** Look for the 'Active' trim starting at **$62,700**.
             * **Dealer Warning:** Watch out for any Dealer add-ons at local dealerships (common for $2k in hidden fees).
-            * **The Savings:** Trading in your vehicle in Travis or Williamson County can save you up to **$5,000 in sales tax** on a new Expedition.
+            * **The Savings:** Trading in your vehicle can save you up to thousands on a new vehcile.
         """)
 
     st.divider()
