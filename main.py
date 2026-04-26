@@ -64,7 +64,7 @@ st.markdown("""
     }
     div.stButton > button:hover { color: var(--primary-color) !important; opacity: 1; }
     
-    .block-container { padding-top: 0.1rem !important; }
+    .block-container { padding-top: 0rem !important; }
     
     /* Car cards now adapt to dark/light mode background */
     .car-card {
