@@ -163,7 +163,7 @@ if st.session_state.page == "home":
     
     # --- AUSTIN SEO HEADERS ---
     st.markdown("# Lowest Priced Ford Expedition near Austin, TX")
-    st.markdown("### 2026 Buyers Guide & Trade-In Value Analysis")
+    st.markdown("### 2026 Buyers Guide & Deal Analysis")
     
     st.write("""
         Buying a Ford Expedition in Central Texas right now is tricky. With MSRPs 
