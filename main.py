@@ -64,7 +64,7 @@ st.markdown("""
     }
     div.stButton > button:hover { color: var(--primary-color) !important; opacity: 1; }
     
-    .block-container { padding-top: 1.5rem !important; }
+    .block-container { padding-top: 0.5rem !important; }
     
     /* Car cards now adapt to dark/light mode background */
     .car-card {
@@ -112,13 +112,12 @@ pages = [("BACKPOCKET", "home"), ("SEARCH ENGINE", "engine"), ("NEGOTIATION GUID
 # We've increased the decimal values to give the text more horizontal room.
 # [0.18, 0.22, 0.25, 0.22, 1.5]
 # The first four numbers are for your links, the '1.5' is the empty space on the right.
-nav_cols = st.columns([0.18, 0.22, 0.25, 0.22, 1.5]) 
+nav_cols = st.columns([0.2, 0.22, 0.25, 0.22, 1.5]) 
 
 for i, (label, pg) in enumerate(pages):
     if nav_cols[i].button(label, key=f"nav_{pg}"):
         st.session_state.page = pg
         st.rerun()
-st.divider()
 
 # --- 6. DATA ENGINE HELPERS ---
 def get_clean_name(raw):
