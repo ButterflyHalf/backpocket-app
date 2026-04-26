@@ -107,9 +107,10 @@ st.markdown("""
 # --- 5. TOP NAVIGATION ---
 pages = [("BACKPOCKET", "home"), ("SEARCH ENGINE", "engine"), ("NEGOTIATION GUIDE", "guide"), ("SUCCESS STORIES", "reviews")]
 
-# We use specific weights to fit the text tightly. 
-# The '5' at the end acts as a spacer to push everything to the left.
-nav_cols = st.columns([0.15, 0.18, 0.22, 0.18, 5]) 
+# We've increased the decimal values to give the text more horizontal room.
+# [0.18, 0.22, 0.25, 0.22, 1.5]
+# The first four numbers are for your links, the '1.5' is the empty space on the right.
+nav_cols = st.columns([0.18, 0.22, 0.25, 0.22, 1.5]) 
 
 for i, (label, pg) in enumerate(pages):
     if nav_cols[i].button(label, key=f"nav_{pg}"):
