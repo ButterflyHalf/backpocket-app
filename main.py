@@ -288,12 +288,12 @@ elif st.session_state.page == "guide":
         """)
 
     st.write("---")
-    st.subheader("📩 Stay Ahead of Austin Dealers")
-    st.write("Get the latest local market floor data and dealership playbooks sent straight to your inbox.")
+    st.subheader("📩 Don't go in unprepared - check out our Substack")
+    st.write("Get the latest car buying negotiation playbooks and market updates sent straight to your mailbox.")
 
 # This creates a clean, clickable button that opens in a new tab
     st.link_button(
-    "👉 Follow my Substack for latest blog posts", 
+    "👉 Follow our Substack", 
     "https://backpocketdeal.substack.com/?r=8ahpfw&utm_campaign=pub-share-checklist"
 )
 
