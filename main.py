@@ -212,7 +212,7 @@ elif st.session_state.page == "guide":
     
     with st.expander("Step 1: Weaponize Your Data", expanded=True):
         st.write("""
-        **Get your data before you set foot on the lot.** * Use **KBB** or **CarMax** to establish a baseline for your **car trade-in value**.
+        **Get your data before you set foot on the lot.** * Use [**KBB**](https://www.kbb.com/whats-my-car-worth/) or [**CarMax**](https://www.carmax.com/sell-my-car) to establish a baseline for your **car trade-in value**.
         * Use the **BackPocket Search Engine** to find the absolute **Market Floor** (the lowest price) for your specific trim within 100 miles.
         """)
 
@@ -238,8 +238,8 @@ elif st.session_state.page == "guide":
         st.write("""
         **Don't negotiate the monthly payment.**
         * Dealers love to hide costs in a "monthly payment." Instead, ask for the **Out-the-Door (OTD) Price** sheet. 
-        * Compare their number to the **lowest car price** you found on BackPocket. If they are higher, ask: *"I'm seeing this exact trim for $X nearby—how are we supposed to close the gap?"*
-        * **CRITICAL:** Do not mention you are a cash buyer (dealers prefer financing) and do not bring up your trade-in until the new car price is locked.
+        * Compare their number to the [**lowest car prices**](https://www.backpocketdeal.com) you found on BackPocket. 
+        * If they are higher, ask: *"I'm seeing this exact trim for $X nearby—how are we supposed to close the gap?"*
         """)
 
     with st.expander("Step 5: The Power to Walk Away"):
