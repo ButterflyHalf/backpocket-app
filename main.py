@@ -44,7 +44,7 @@ RADIUS = "100"
 # --- 2. SEED INITIAL DATA ---
 if not os.path.exists(REVIEW_FILE):
     with open(REVIEW_FILE, "w") as f:
-        f.write(f"2026-04-24|Austin J.|Ford Expedition|8000.0|Using the data from BackPocket changed the entire vibe of the deal. I walked in with the Market Floor data and saved $7k on the purchase and another $1k on trade. Felt like I had an action plan instead of just hoping for the best.\n")
+        f.write(f"2026-04-24|Austin J.|Ford Expedition|8000.0|Using the data from BackPocket changed the entire vibe of the deal. I walked in with the Market Floor data and saved $10k on the purchase and another $4k on trade. Felt like I had an action plan instead of just hoping for the best.\n")
 
 # --- 3. SESSION STATE ---
 if 'page' not in st.session_state:
@@ -163,7 +163,7 @@ if st.session_state.page == "home":
     
     # --- AUSTIN SEO HEADERS ---
     st.markdown("# Lowest Priced Ford Expedition near Austin, TX")
-    st.markdown("### 2026 Price Audit & Trade-In Value Analysis")
+    st.markdown("### 2026 Buyers Guide & Trade-In Value Analysis")
     
     st.write("""
         Buying a Ford Expedition in Central Texas right now is tricky. With MSRPs 
@@ -179,7 +179,7 @@ if st.session_state.page == "home":
         st.info("💡 **Austin Market Insight (April 2026):**")
         st.write("""
             * **Target Price:** Look for the 'Active' trim starting at **$62,700**.
-            * **Dealer Warning:** Watch out for 'Ceramic Tint' or 'Pro-Pack' add-ons at local dealerships like Leif Johnson or Covert Ford (common $600-$1,200 hidden fees).
+            * **Dealer Warning:** Watch out for any Dealer add-ons at local dealerships (common for $2k in hidden fees).
             * **The Savings:** Trading in your vehicle in Travis or Williamson County can save you up to **$5,000 in sales tax** on a new Expedition.
         """)
 
