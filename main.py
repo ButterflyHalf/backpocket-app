@@ -236,14 +236,14 @@ elif st.session_state.page == "guide":
     st.divider()
     st.subheader("Phase 2: At the Dealership")
     
-    with st.expander("Step 3: Master the Sales Rapport"):
+    with st.expander("Step 3: Master the Sales Rapport", expanded=True):
         st.write("""
         **Be the buyer they want to work with.**
         * Visit your local dealer and be professional. The salesman is there to help you, but they are also there to make a profit. 
         * Let them value your trade-in, but don't discuss numbers yet. Focus on the vehicle's fit for your lifestyle first.
         """)
 
-    with st.expander("Step 4: Focus on the Out-the-Door (OTD) Price"):
+    with st.expander("Step 4: Focus on the Out-the-Door (OTD) Price", expanded=True):
         st.write("""
         **Don't negotiate the monthly payment.**
         * Dealers love to hide costs in a "monthly payment." Instead, ask for the **Out-the-Door (OTD) Price** sheet. 
@@ -251,14 +251,14 @@ elif st.session_state.page == "guide":
         * If they are higher, ask: *"I'm seeing this exact trim for $X nearby—how are we supposed to close the gap?"*
         """)
 
-    with st.expander("Step 5: The Power to Walk Away"):
+    with st.expander("Step 5: The Power to Walk Away", expanded=True):
         st.write("""
         **You are in control.**
         * If the dealer won't budge on **market adjustments** or high doc fees, leave. 
         * You have the data—you know there is a better price out there. Often, walking toward the door is the only way to get their "final, final" offer.
         """)
 
-    with st.expander("Step 6: Digital Price Matching"):
+    with st.expander("Step 6: Digital Price Matching", expanded=True):
         st.write("""
         **Text multiple dealerships at once.**
         * You don't have to visit 10 stores. Get a salesman's cell number and text them: *"I'm buying a Ford Expedition today. My current best OTD offer is $X. If you can beat it without hidden dealer add-ons, I’ll come sign now."*
@@ -269,19 +269,19 @@ elif st.session_state.page == "guide":
     st.divider()
     st.subheader("Phase 3: Closing the Deal")
     
-    with st.expander("Step 7: Be Patient"):
+    with st.expander("Step 7: Be Patient", expanded=True):
         st.write("""
         **Hold the line.**
         * Wait for the final adjustment. Let them know you are ready to close **today** if they can shave off that last few hundred dollars to hit your target.
         """)
 
-    with st.expander("Step 8: Choose the Best Deal"):
+    with st.expander("Step 8: Choose the Best Deal", expanded=True):
         st.write("""
         **Reward transparency.**
         * Go to the dealership that provided the most transparent numbers and the lowest **Cash Gap** (the difference between the new car and your trade).
         """)
 
-    with st.expander("Step 9: F&I Room Strategy"):
+    with st.expander("Step 9: F&I Room Strategy", expanded=True):
         st.write("""
         **Navigate the finance box.**
         * Are **extended car warranties** negotiable? **YES.** If you want one, negotiate the price down just like the car. If not, politely decline all add-ons.
