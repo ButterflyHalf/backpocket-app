@@ -121,7 +121,7 @@ pages = [("BACKPOCKET", "home"), ("SEARCH ENGINE", "engine"), ("NEGOTIATION GUID
 # We've increased the decimal values to give the text more horizontal room.
 # [0.18, 0.22, 0.25, 0.22, 1.5]
 # The first four numbers are for your links, the '1.5' is the empty space on the right.
-nav_cols = st.columns([0.3, 0.25, 0.25, 0.22, 1.5]) 
+nav_cols = st.columns([0.3, 0.25, 0.27, 0.22, 1.5]) 
 
 for i, (label, pg) in enumerate(pages):
     if nav_cols[i].button(label, key=f"nav_{pg}"):
