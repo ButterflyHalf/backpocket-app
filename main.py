@@ -287,12 +287,12 @@ elif st.session_state.page == "guide":
         * Are **extended car warranties** negotiable? **YES.** If you want one, negotiate the price down just like the car. If not, politely decline all add-ons.
         """)
 
-   st.write("---")
-st.subheader("📩 Stay Ahead of Austin Dealers")
-st.write("Get the latest local market floor data and dealership playbooks sent straight to your inbox.")
+    st.write("---")
+    st.subheader("📩 Stay Ahead of Austin Dealers")
+    st.write("Get the latest local market floor data and dealership playbooks sent straight to your inbox.")
 
 # This creates a clean, clickable button that opens in a new tab
-st.link_button(
+    st.link_button(
     "👉 Follow my Substack for latest blog posts", 
     "https://backpocketdeal.substack.com/?r=8ahpfw&utm_campaign=pub-share-checklist"
 )
