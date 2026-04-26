@@ -1,4 +1,5 @@
 import streamlit as st
+import streamlit.components.v1 as components  # Make sure this is here!
 import requests
 import os
 import base64
@@ -11,6 +12,19 @@ st.set_page_config(
     page_icon="💰",
     layout="wide"
 )
+
+# --- 2. GOOGLE ANALYTICS INJECTION ---
+# Place this immediately after page_config
+ga_code = """
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9J79QQ020C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){{dataLayer.push(arguments);}}
+  gtag('js', new Date());
+  gtag('config', 'G-9J79QQ020C');
+</script>
+"""
+components.html(ga_code, height=0)
 
 # --- 1a. URL LOGIC ---
 # Check if the URL has a page parameter (e.g., backpocketdeal.com/?page=engine)
