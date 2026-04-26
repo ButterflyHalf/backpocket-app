@@ -7,7 +7,7 @@ from datetime import datetime
 # --- 1. CONFIG & SETTINGS ---
 # This must be the very first Streamlit command in your script
 st.set_page_config(
-    page_title="Lowest Priced Ford Expedition Austin | 2026 Price Audit",
+    page_title="Lowest Priced Ford Expedition Austin",
     page_icon="🚗",
     layout="wide"
 )
