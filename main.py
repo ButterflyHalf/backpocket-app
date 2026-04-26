@@ -118,7 +118,7 @@ for i, (label, pg) in enumerate(pages):
     if nav_cols[i].button(label, key=f"nav_{pg}"):
         st.session_state.page = pg
         st.rerun()
-st.divider(-)
+st.divider("---")
 
 # --- 6. DATA ENGINE HELPERS ---
 def get_clean_name(raw):
