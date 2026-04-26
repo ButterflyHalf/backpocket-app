@@ -1,8 +1,15 @@
 import streamlit as st
+import requests
+import os
+import base64
+from datetime import datetime
+
+# --- 1. CONFIG & SETTINGS ---
 # This must be the very first Streamlit command in your script
 st.set_page_config(
-    page_title="BackPocket",
-    page_icon="💰",
+    page_title="Lowest Priced Ford Expedition Austin | 2026 Price Audit",
+    page_icon="🚗",
+    layout="wide"
 )
 
 # Inject the Impact.com verification tag into the <head>
@@ -17,15 +24,8 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
+
 # Hide the top bar and the "Made with Streamlit" footer
-hide_style = """
-    <style>
-    #MainMenu {visibility: hidden;}
-    footer {visibility: hidden;}
-    header {visibility: hidden;}
-    </style>
-    """
-st.markdown(hide_style, unsafe_allow_html=True)# Hide the top bar and the "Made with Streamlit" footer
 hide_style = """
     <style>
     #MainMenu {visibility: hidden;}
@@ -35,13 +35,6 @@ hide_style = """
     """
 st.markdown(hide_style, unsafe_allow_html=True)
 
-import requests
-import os
-import base64
-from datetime import datetime
-
-# --- 1. CONFIG & SETTINGS ---
-st.set_page_config(page_title="BackPocket | Negotiation Intelligence", layout="wide", page_icon="🛡️")
 API_KEY = os.environ.get("MARKETCHECK_API_KEY")
 REVIEW_FILE = "reviews.txt"
 RADIUS = "100"
@@ -152,9 +145,32 @@ if st.session_state.page == "home":
         with open(banner_path, "rb") as f:
             data = base64.b64encode(f.read()).decode("utf-8")
             st.markdown(f'<div style="background-image: url(\'data:image/png;base64,{data}\'); background-size: cover; background-position: center 60%; height: 180px; border-radius: 10px; margin-bottom: 10px;"></div>', unsafe_allow_html=True)
-    st.markdown("<h1 style='text-align: center; font-size: 50px; font-weight: 800; margin-bottom: 0px;'>BACKPOCKET</h1>", unsafe_allow_html=True)
-    st.markdown("<p style='text-align: center; color: #888; font-size: 19px; margin-top: -10px;'>Don't go in unprepared. Negotiate your purchase with BackPocket.</p>", unsafe_allow_html=True)
+    
+    # --- AUSTIN SEO HEADERS ---
+    st.markdown("# Lowest Priced Ford Expedition near Austin, TX")
+    st.markdown("### 2026 Price Audit & Trade-In Value Analysis")
+    
+    st.write("""
+        Buying a Ford Expedition in Central Texas right now is tricky. With MSRPs 
+        fluctuating and Austin dealers adding 'market adjustments,' you need to know 
+        the real numbers. 
+        
+        **BackPocket** analyzes the latest data for Ford Expeditions in Austin, 
+        Round Rock, and Georgetown to show you the actual 'Drive-Away' price.
+    """)
+
+    # --- AGGREGATOR BUSTER CONTENT ---
+    with st.container():
+        st.info("💡 **Austin Market Insight (April 2026):**")
+        st.write("""
+            * **Target Price:** Look for the 'Active' trim starting at **$62,700**.
+            * **Dealer Warning:** Watch out for 'Ceramic Tint' or 'Pro-Pack' add-ons at local dealerships like Leif Johnson or Covert Ford (common $600-$1,200 hidden fees).
+            * **The Savings:** Trading in your vehicle in Travis or Williamson County can save you up to **$5,000 in sales tax** on a new Expedition.
+        """)
+
     st.divider()
+    
+    # ORIGINAL HOME PAGE PILLARS
     c1, c2, c3 = st.columns(3)
     with c1:
         st.markdown("### 🎯 Find the Anchor")
