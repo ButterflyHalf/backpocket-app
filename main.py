@@ -53,20 +53,25 @@ if 'search_results' not in st.session_state:
 # --- 4. STYLING (CSS) ---
 st.markdown("""
     <style>
+    /* Make buttons use the theme's text color */
     div.stButton > button {
         background: none !important; border: none !important; padding: 0 !important;
-        color: #555 !important; text-decoration: underline !important;
+        color: var(--text-color) !important; text-decoration: underline !important;
         font-weight: 600 !important; font-size: 16px !important; box-shadow: none !important;
+        opacity: 0.8;
     }
-    div.stButton > button:hover { color: #000 !important; background: none !important; }
+    div.stButton > button:hover { color: var(--primary-color) !important; opacity: 1; }
+    
     .block-container { padding-top: 1.5rem !important; }
     
+    /* Car cards now adapt to dark/light mode background */
     .car-card {
-        background-color: white; 
+        background-color: var(--secondary-background-color); 
+        color: var(--text-color);
         padding: 20px; 
         border-radius: 12px;
-        border: 1px solid #eee; 
-        box-shadow: 2px 2px 12px rgba(0,0,0,0.06);
+        border: 1px solid rgba(128, 128, 128, 0.2); 
+        box-shadow: 2px 2px 12px rgba(0,0,0,0.1);
         height: 550px; 
         display: flex;
         flex-direction: column;
@@ -79,6 +84,7 @@ st.markdown("""
         overflow: hidden;
         border-radius: 8px;
         margin-bottom: 15px;
+        background-color: rgba(128, 128, 128, 0.1);
     }
     
     .car-image-container img {
@@ -87,9 +93,13 @@ st.markdown("""
         object-fit: cover;
     }
 
+    /* Review cards now adapt to dark/light mode background */
     .review-card {
-        background-color: #f9f9f9; padding: 20px; border-radius: 10px;
-        border-left: 5px solid #333; margin-bottom: 20px;
+        background-color: var(--secondary-background-color); 
+        color: var(--text-color);
+        padding: 20px; border-radius: 10px;
+        border-left: 5px solid var(--primary-color); 
+        margin-bottom: 20px;
     }
     </style>
     """, unsafe_allow_html=True)
