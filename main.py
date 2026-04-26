@@ -5,35 +5,37 @@ import base64
 from datetime import datetime
 
 # --- 1. CONFIG & SETTINGS ---
-# This must be the very first Streamlit command in your script
+# THIS MUST BE THE VERY FIRST STREAMLIT COMMAND
 st.set_page_config(
-    page_title="Lowest Priced Ford Expedition Austin",
-    page_icon="🚗",
+    page_title="BackPocket Deal | Lowest Ford Expedition Prices in Austin",
+    page_icon="💰",
     layout="wide"
 )
 
-# Inject the Impact.com verification tag into the <head>
+# Inject the Impact.com verification tag AND Meta Description for SEO
 st.markdown(
-    f"""
-    <script>
-        var meta = document.createElement('meta');
-        meta.name = "impact-site-verification";
-        meta.content = "9c4dc491-549c-4de6-98ea-84d662dbce49";
-        document.getElementsByTagName('head')[0].appendChild(meta);
-    </script>
+    """
+    <head>
+        <meta name="description" content="Find the lowest priced Ford Expeditions in Austin. Use our Market Floor tool and Negotiation Playbook to save thousands.">
+        <script>
+            var meta = document.createElement('meta');
+            meta.name = "impact-site-verification";
+            meta.content = "9c4dc491-549c-4de6-98ea-84d662dbce49";
+            document.getElementsByTagName('head')[0].appendChild(meta);
+        </script>
+    </head>
     """,
     unsafe_allow_html=True
 )
 
 # Hide the top bar and the "Made with Streamlit" footer
-hide_style = """
+st.markdown("""
     <style>
     #MainMenu {visibility: hidden;}
     footer {visibility: hidden;}
     header {visibility: hidden;}
     </style>
-    """
-st.markdown(hide_style, unsafe_allow_html=True)
+    """, unsafe_allow_html=True)
 
 API_KEY = os.environ.get("MARKETCHECK_API_KEY")
 REVIEW_FILE = "reviews.txt"
