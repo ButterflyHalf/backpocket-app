@@ -106,8 +106,10 @@ st.markdown("""
 
 # --- 5. TOP NAVIGATION ---
 pages = [("BACKPOCKET", "home"), ("SEARCH ENGINE", "engine"), ("NEGOTIATION GUIDE", "guide"), ("SUCCESS STORIES", "reviews")]
-# Changed to equal column weights to ensure equal spacing
-nav_cols = st.columns(len(pages) + 1) 
+
+# We use specific weights to fit the text tightly. 
+# The '5' at the end acts as a spacer to push everything to the left.
+nav_cols = st.columns([0.15, 0.18, 0.22, 0.18, 5]) 
 
 for i, (label, pg) in enumerate(pages):
     if nav_cols[i].button(label, key=f"nav_{pg}"):
