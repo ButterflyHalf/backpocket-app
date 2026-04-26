@@ -205,25 +205,25 @@ elif st.session_state.page == "guide":
     
     st.info("💡 **Pro Tip:** Dealers negotiate every day. You only do it every few years. This guide levels the playing field using the **Market Floor** data you found on BackPocket.")
 
-    # Step 1 & 2: Preparation
-    col1, col2 = st.columns(2)
-    with col1:
-        with st.expander("Step 1: Weaponize Your Data", expanded=True):
-            st.write("""
-            **Get your data before you set foot on the lot.** * Use **KBB** or **CarMax** to establish a baseline for your **car trade-in value**.
-            * Use the **BackPocket Search Engine** to find the absolute **Market Floor** (the lowest price) for your specific trim within 100 miles.
-            """)
-    with col2:
-        with st.expander("Step 2: The 10% Affordability Rule", expanded=True):
-            st.write("""
-            **Verify your budget.**
-            * Use our calculator to ensure your total vehicle costs (payment, insurance, maintenance) fit within the **10% of monthly income bucket**. 
-            * Knowing your limit prevents you from being "upsold" into a debt trap.
-            """)
+    # Phase 1: Preparation
+    st.subheader("Phase 1: Preparation")
+    
+    with st.expander("Step 1: Weaponize Your Data", expanded=True):
+        st.write("""
+        **Get your data before you set foot on the lot.** * Use **KBB** or **CarMax** to establish a baseline for your **car trade-in value**.
+        * Use the **BackPocket Search Engine** to find the absolute **Market Floor** (the lowest price) for your specific trim within 100 miles.
+        """)
 
-    # Step 3 & 4: The Negotiation
+    with st.expander("Step 2: The 10% Affordability Rule", expanded=True):
+        st.write("""
+        **Verify your budget.**
+        * Use our calculator to ensure your total vehicle costs (payment, insurance, maintenance) fit within the **10% of monthly income bucket**. 
+        * Knowing your limit prevents you from being "upsold" into a debt trap.
+        """)
+
+    # Phase 2: The Negotiation
     st.divider()
-    st.subheader("At the Dealership")
+    st.subheader("Phase 2: At the Dealership")
     
     with st.expander("Step 3: Master the Sales Rapport"):
         st.write("""
@@ -240,7 +240,6 @@ elif st.session_state.page == "guide":
         * **CRITICAL:** Do not mention you are a cash buyer (dealers prefer financing) and do not bring up your trade-in until the new car price is locked.
         """)
 
-    # Step 5 & 6: Leverage
     with st.expander("Step 5: The Power to Walk Away"):
         st.write("""
         **You are in control.**
@@ -255,21 +254,29 @@ elif st.session_state.page == "guide":
         * Insist on removing "Pro-Packs," window tints, or nitrogen tires that add zero value.
         """)
 
-    # Step 7, 8, 9: The Close
+    # Phase 3: The Close
     st.divider()
-    st.subheader("Closing the Deal")
+    st.subheader("Phase 3: Closing the Deal")
     
-    c1, c2, c3 = st.columns(3)
-    with c1:
-        st.markdown("##### Step 7: Be Patient")
-        st.write("Wait for the final adjustment. Let them know you are ready to close **today** if they can shave off that last few hundred dollars.")
-    with c2:
-        st.markdown("##### Step 8: Choose the Best Deal")
-        st.write("Go to the dealership that provided the most transparency and the lowest **Cash Gap** (the difference between the new car and your trade).")
-    with c3:
-        st.markdown("##### Step 9: F&I Room Strategy")
-        st.write("Are **extended car warranties** negotiable? **YES.** If you want one, negotiate the price down just like the car. If not, politely decline all add-ons.")
+    with st.expander("Step 7: Be Patient"):
+        st.write("""
+        **Hold the line.**
+        * Wait for the final adjustment. Let them know you are ready to close **today** if they can shave off that last few hundred dollars to hit your target.
+        """)
 
+    with st.expander("Step 8: Choose the Best Deal"):
+        st.write("""
+        **Reward transparency.**
+        * Go to the dealership that provided the most transparent numbers and the lowest **Cash Gap** (the difference between the new car and your trade).
+        """)
+
+    with st.expander("Step 9: F&I Room Strategy"):
+        st.write("""
+        **Navigate the finance box.**
+        * Are **extended car warranties** negotiable? **YES.** If you want one, negotiate the price down just like the car. If not, politely decline all add-ons.
+        """)
+
+    st.divider()
     if st.button("← BACK TO SEARCH ENGINE"):
         st.session_state.page = "engine"
         st.rerun()
