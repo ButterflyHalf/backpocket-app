@@ -12,6 +12,15 @@ st.set_page_config(
     layout="wide"
 )
 
+# --- 1a. URL LOGIC ---
+# Check if the URL has a page parameter (e.g., backpocketdeal.com/?page=engine)
+query_params = st.query_params
+if "page" in query_params:
+    if query_params["page"] == "engine":
+        st.session_state.page = "engine"
+    elif query_params["page"] == "guide":
+        st.session_state.page = "guide"
+
 # Inject the Impact.com verification tag AND Meta Description for SEO
 st.markdown(
     """
@@ -238,7 +247,7 @@ elif st.session_state.page == "guide":
         st.write("""
         **Don't negotiate the monthly payment.**
         * Dealers love to hide costs in a "monthly payment." Instead, ask for the **Out-the-Door (OTD) Price** sheet. 
-        * Compare their number to the [**lowest car prices**](https://www.backpocketdeal.com) you found on BackPocket. 
+        * Compare their number to the [**lowest car prices**](/?page=engine) you found on BackPocket. 
         * If they are higher, ask: *"I'm seeing this exact trim for $X nearby—how are we supposed to close the gap?"*
         """)
 
