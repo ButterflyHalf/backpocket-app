@@ -1,5 +1,6 @@
 import streamlit as st
 import streamlit.components.v1 as components  # Make sure this is here!
+from streamlit_javascript import st_javascript
 import requests
 import os
 import base64
@@ -13,19 +14,25 @@ st.set_page_config(
     layout="wide"
 )
 
-# --- 2. THE NUCLEAR GA OPTION ---
-# This replaces EVERYTHING we did previously for Analytics
-st_javascript(f"""
-    var script = document.createElement('script');
-    script.src = 'https://www.googletagmanager.com/gtag/js?id=G-9J79QQ020C';
-    script.async = true;
-    document.head.appendChild(script);
+# 2. Define a function for analytics
+def inject_ga():
+    st_javascript(f"""
+        var script = document.createElement('script');
+        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-9J79QQ020C';
+        script.async = true;
+        document.head.appendChild(script);
 
-    window.parent.dataLayer = window.parent.dataLayer || [];
-    function gtag(){{window.parent.dataLayer.push(arguments);}}
-    gtag('js', new Date());
-    gtag('config', 'G-9J79QQ020C');
-""")
+        window.parent.dataLayer = window.parent.dataLayer || [];
+        function gtag(){{window.parent.dataLayer.push(arguments);}}
+        gtag('js', new Date());
+        gtag('config', 'G-9J79QQ020C');
+    """)
+
+# 3. Call the function AFTER the page starts drawing
+# This prevents the "Exec Code" error
+inject_ga()
+
+# ... (the rest of your app logic)
 
 # --- 1a. URL LOGIC ---
 # Check if the URL has a page parameter (e.g., backpocketdeal.com/?page=engine)
