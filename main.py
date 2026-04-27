@@ -13,23 +13,19 @@ st.set_page_config(
     layout="wide"
 )
 
-# --- 2. GOOGLE ANALYTICS INJECTION (The "Bypass" Method) ---
-import streamlit.components.v1 as components
+# --- 2. THE NUCLEAR GA OPTION ---
+# This replaces EVERYTHING we did previously for Analytics
+st_javascript(f"""
+    var script = document.createElement('script');
+    script.src = 'https://www.googletagmanager.com/gtag/js?id=G-9J79QQ020C';
+    script.async = true;
+    document.head.appendChild(script);
 
-# This version is much harder for browsers to block
-ga_code = f"""
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-9J79QQ020C"></script>
-<script>
-    window.parent.document.addEventListener('DOMContentLoaded', function() {{
-        window.parent.dataLayer = window.parent.dataLayer || [];
-        function gtag(){{window.parent.dataLayer.push(arguments);}}
-        gtag('js', new Date());
-        gtag('config', 'G-9J79QQ020C');
-    }});
-</script>
-"""
-# We use st.markdown with unsafe_allow_html=True to "force" the injection
-st.markdown(f'<div style="display:none">{ga_code}</div>', unsafe_allow_html=True)
+    window.parent.dataLayer = window.parent.dataLayer || [];
+    function gtag(){{window.parent.dataLayer.push(arguments);}}
+    gtag('js', new Date());
+    gtag('config', 'G-9J79QQ020C');
+""")
 
 # --- 1a. URL LOGIC ---
 # Check if the URL has a page parameter (e.g., backpocketdeal.com/?page=engine)
