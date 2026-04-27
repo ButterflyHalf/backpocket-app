@@ -14,17 +14,20 @@ st.set_page_config(
 )
 
 # --- 2. GOOGLE ANALYTICS INJECTION ---
-# We use a slightly different wrapper to ensure it breaks out of the "iframe"
+# Using the iframe-buster method to ensure Google sees the site URL
 ga_code = """
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-9J79QQ020C"></script>
 <script>
   window.parent.dataLayer = window.parent.dataLayer || [];
   function gtag(){window.parent.dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', 'G-9J79QQ020C');
+  gtag('config', 'G-9J79QQ020C', {
+    'page_title' : document.title,
+    'page_path': window.parent.location.pathname
+  });
 </script>
 """
-# Note: we use st.components.v1.html directly here
+# We place this right after st.set_page_config
 components.html(ga_code, height=0, width=0)
 
 # --- 1a. URL LOGIC ---
