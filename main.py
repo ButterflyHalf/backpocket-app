@@ -13,22 +13,23 @@ st.set_page_config(
     layout="wide"
 )
 
-# --- 2. GOOGLE ANALYTICS INJECTION ---
-# Using the iframe-buster method to ensure Google sees the site URL
-ga_code = """
+# --- 2. GOOGLE ANALYTICS INJECTION (The "Bypass" Method) ---
+import streamlit.components.v1 as components
+
+# This version is much harder for browsers to block
+ga_code = f"""
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-9J79QQ020C"></script>
 <script>
-  window.parent.dataLayer = window.parent.dataLayer || [];
-  function gtag(){window.parent.dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-9J79QQ020C', {
-    'page_title' : document.title,
-    'page_path': window.parent.location.pathname
-  });
+    window.parent.document.addEventListener('DOMContentLoaded', function() {{
+        window.parent.dataLayer = window.parent.dataLayer || [];
+        function gtag(){{window.parent.dataLayer.push(arguments);}}
+        gtag('js', new Date());
+        gtag('config', 'G-9J79QQ020C');
+    }});
 </script>
 """
-# We place this right after st.set_page_config
-components.html(ga_code, height=0, width=0)
+# We use st.markdown with unsafe_allow_html=True to "force" the injection
+st.markdown(f'<div style="display:none">{ga_code}</div>', unsafe_allow_html=True)
 
 # --- 1a. URL LOGIC ---
 # Check if the URL has a page parameter (e.g., backpocketdeal.com/?page=engine)
