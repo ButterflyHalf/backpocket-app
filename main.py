@@ -14,17 +14,18 @@ st.set_page_config(
 )
 
 # --- 2. GOOGLE ANALYTICS INJECTION ---
-# Place this immediately after page_config
+# We use a slightly different wrapper to ensure it breaks out of the "iframe"
 ga_code = """
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-9J79QQ020C"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){{dataLayer.push(arguments);}}
+  window.parent.dataLayer = window.parent.dataLayer || [];
+  function gtag(){window.parent.dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', 'G-9J79QQ020C');
 </script>
 """
-components.html(ga_code, height=0)
+# Note: we use st.components.v1.html directly here
+components.html(ga_code, height=0, width=0)
 
 # --- 1a. URL LOGIC ---
 # Check if the URL has a page parameter (e.g., backpocketdeal.com/?page=engine)
